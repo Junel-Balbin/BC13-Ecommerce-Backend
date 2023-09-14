@@ -12,9 +12,9 @@ Tag.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
       allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
     tag_name: {
       type: DataTypes.STRING,
@@ -32,4 +32,4 @@ Tag.init(
 // Exports Tag.
 module.exports = Tag;
 
-// Class Mini Project 13 was a big help with structure and code snippets.
+// Credits to Class Mini Project 13 with structure reference and code snippets.

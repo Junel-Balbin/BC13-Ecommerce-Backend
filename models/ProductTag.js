@@ -10,7 +10,26 @@ class ProductTag extends Model {}
 // Define columns.
 ProductTag.init(
   {
-
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    product_id: {
+      type: DataTypes.INTEGER,
+      reference: {
+        model: 'product',
+        key: 'id',
+      }
+    },
+    tag_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'tag',
+        key: 'id',
+      }
+    },
   },
   {
     sequelize,
@@ -23,3 +42,5 @@ ProductTag.init(
 
 // Exports ProductTag.
 module.exports = ProductTag;
+
+// Class Mini Project 13 was a big help with structure and code snippets.
