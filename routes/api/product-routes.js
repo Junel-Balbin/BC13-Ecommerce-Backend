@@ -2,21 +2,34 @@
 const router = require('express').Router();
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
-// The `/api/products` endpoint
-
-// get all products
+// The `/api/products` endpoint.
+// Get all products.
 router.get('/', async (req, res) => {
-  // find all products
-  // be sure to include its associated Category and Tag data
+  try {
+    const products = await Product.findAll({
+      include: [{ model: Category }, { model: Tag, through: ProductTag, }],
+    });
+    res.status(200).json(products);
+  } catch (err) {
+    res.status(500).json();
+  }
 });
 
-// get one product
+// Get one product by ID.
 router.get('/:id', async (req, res) => {
-  // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+  try {
+    const product = await Product.findByPk(req.params.id, {
+      include: [{ model: Category }, { model: Tag, through: ProductTag }],
+    });
+    !product
+      ? res.status(404).json({ message: "Product not found!" })
+      : res.status(200).json(product);
+  } catch (err) {
+    res.status(500).json();
+  }
 });
 
-// create new product
+// Create a new product.
 router.post('/', async (req, res) => {
   /* req.body should look like this...
     {
@@ -48,7 +61,7 @@ router.post('/', async (req, res) => {
     });
 });
 
-// update product
+// Update product by ID.
 router.put('/:id', async (req, res) => {
   // update product data
   Product.update(req.body, {
@@ -93,8 +106,23 @@ router.put('/:id', async (req, res) => {
     });
 });
 
+// Delete one product by its `id` value.
 router.delete('/:id', async (req, res) => {
-  // delete one product by its `id` value
+  try {
+    const removedProduct = await Category.destroy({ where: { id: req.params.id } });
+
+    if (!removedProduct) {
+      return res.status(404).json({ message: 'Product not found.' });
+    } 
+    res.status(200).json(removedProduct);
+  }
+
+  catch (err) {
+    res.status(500).json(err);
+  }
+
 });
 
 module.exports = router;
+
+// Class Mini Project 13 helped with structure and code snippets.
