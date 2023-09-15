@@ -22,8 +22,7 @@ router.get('/:id', async (req, res) => {
     { include: [{ model: Product }] });
 
     if (!categoryId) {
-      res.status(404).json({ message: 'ID not found' });
-      return;
+      return res.status(404).json({ message: 'ID not found' });
     }
     res.status(200).json(categoryId);
 
@@ -46,10 +45,10 @@ router.post('/', async (req, res) => {
 // Update a category by its `id` value.
 router.put('/:id', async (req, res) => {
   try {
-    const update = await Category.update(req.body, { where: { id: req.params.id } });
+    const updatedCategory = await Category.update(req.body, { where: { id: req.params.id } });
 
     !update[0] ? res.status(404).json({ message: 'ID not found' }) : 
-    res.status(200).json(update);
+    res.status(200).json(updatedCategory);
     
   } catch (err) {
     res.status(500).json();
@@ -60,12 +59,12 @@ router.put('/:id', async (req, res) => {
 // Delete a category by its `id` value.
 router.delete('/:id', async (req, res) => {
   try {
-    const remove = await Category.destroy({ where: { id: req.params.id } });
+    const removedCategory = await Category.destroy({ where: { id: req.params.id } });
 
-    if (!remove) {
+    if (!removedCategory) {
       return res.status(404).json({ message: 'Product not found.' });
     } 
-    res.status(200).json(remove);
+    res.status(200).json(removedCategory);
   }
 
   catch (err) {
