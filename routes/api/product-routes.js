@@ -98,7 +98,7 @@ router.put('/:id', async (req, res) => {
         });
       }
 
-      return res.json(product);
+      res.status(200).json({ message: 'Updated Product Successfully.' });
     })
     .catch((err) => {
       // console.log(err);
@@ -114,7 +114,7 @@ router.delete('/:id', async (req, res) => {
     if (!removedProduct) {
       return res.status(404).json({ message: 'Product not found.' });
     } 
-    res.status(200).json(removedProduct);
+    res.status(200).json({ message: 'Deleted Product Successfully.' });
   }
 
   catch (err) {
