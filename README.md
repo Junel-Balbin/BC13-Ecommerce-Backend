@@ -49,30 +49,30 @@ THEN I am able to successfully create, update, and delete data in my database
 * `http://localhost:3001` Use Port for Routes.
 #### Tag Routes
 * `GET /api/tags`: Get all Tag.
-* `POST /api/tags`: Create a new Tag.
-* `GET /api/tags/:id`: Get Tag by its ID.
-* `PUT /api/tags/:id`: Update Tag by its ID.
-* `DELETE /api/tags/:id`: Delete Tag by its ID.
+* `POST /api/tags`: Create new Tag.
+* `GET /api/tags/:id`: Get Tag by ID.
+* `PUT /api/tags/:id`: Update Tag by ID.
+* `DELETE /api/tags/:id`: Delete Tag by ID.
 
 #### Category Routes
 * `GET /api/categories`: Get all Category.
-* `POST /api/categories`: Create a new Category.
-* `GET /api/categories/:id`: Get Category by its ID.
-* `PUT /api/categories/:id`: Update Category by its ID.
-* `DELETE /api/categories/:id`: Delete Category by its ID.
+* `POST /api/categories`: Create new Category.
+* `GET /api/categories/:id`: Get Category by ID.
+* `PUT /api/categories/:id`: Update Category by ID.
+* `DELETE /api/categories/:id`: Delete Category by ID.
 
 #### Product Routes
 * `GET /api/products`: Get all Product.
-* `POST /api/products`: Create a new Product.
-* `GET /api/products/:id`: Get Product by its ID.
-* `PUT /api/products/:id`: Update Product by its ID.
-* `DELETE /api/products/:id`: Delete Product by its ID.
+* `POST /api/products`: Create new Product.
+* `GET /api/products/:id`: Get Product by ID.
+* `PUT /api/products/:id`: Update Product by ID.
+* `DELETE /api/products/:id`: Delete Product by ID.
 
 ## Video Walkthrough:
-* 🎥 [Video Walkthrough: E-commerce Backend.]()
+* 🎥 [Video Walkthrough: E-commerce Backend.](https://www.youtube.com/watch?v=sTckPLQBA3w)
 
 ## Application User Interface:
-*
+<img src="./assets/images/screenshot.png">
 
 ## Credits and Resources:
 * Google search & Youtube videos.
